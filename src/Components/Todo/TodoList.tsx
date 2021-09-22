@@ -4,7 +4,7 @@ import classes from './Todos.module.css'
 
 
 
-const TodoList: React.FC<{ items: Todo[] }> = (props) => {
+const TodoList: React.FC<{ items: Todo[], removeToDo: (id: string) => void}> = (props) => {
     return (
         <div >
             {
@@ -12,7 +12,7 @@ const TodoList: React.FC<{ items: Todo[] }> = (props) => {
                 props.items.map((item: any) => {
                     return (
                         <ul className={classes.todos}>
-                            <li> <TodoItem key={item.id} item={item} /> </li>
+                            <li> <TodoItem key={item.id} item={item} remove={props.removeToDo.bind(null, item.id)} /> </li>
                         </ul >
                     )
             })
