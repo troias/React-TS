@@ -11,7 +11,6 @@ const TodoList: React.FC = (props) => {
         return (
           <ul className={classes.todos}>
             <li>
-              {" "}
               <TodoItem
                 key={item.id}
                 item={item}
