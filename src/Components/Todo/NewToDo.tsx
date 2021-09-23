@@ -1,15 +1,17 @@
-import React, { useRef } from 'react'
+import React, { useRef, useContext } from 'react'
 import classes from './NewToDo.module.css'
+import { TodosContext } from '../../store/ToDosContext'
 
-
-const NewToDo: React.FC< {todoText: (currtext: string) => void} > = (props) => {
+const NewToDo: React.FC = (props) => {
+    const todosCtx = useContext(TodosContext)
     const textRef = useRef<HTMLInputElement>(null);
 
 
     const todoHandler = (event: React.FormEvent) => {
         event.preventDefault();
         const currText = textRef.current!.value
-        props.todoText(currText)
+        console.log("clicked")
+        todosCtx.addToDo(currText)
     }
 
     return (
