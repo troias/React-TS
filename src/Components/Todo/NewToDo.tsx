@@ -10,7 +10,6 @@ const NewToDo: React.FC = (props) => {
     const todoHandler = (event: React.FormEvent) => {
         event.preventDefault();
         const currText = textRef.current!.value
-        console.log("clicked")
         todosCtx.addToDo(currText)
     }
 
